@@ -44,21 +44,23 @@ export const Search = () => {
       <div>
         <ul>
           {countries.map(country => {
-            const name = country.name.replace(
+            const name = country.Name.replace(
               regexp,
-              `<span class="highlight" style="color: yellow" >${filter}</span>`
+              `<span class="highlight" style="color: green" >${filter}</span>`
             );
-            const continent = country.continent.replace(
+            const region = country.Region.replace(
               regexp,
-              `<span class="highlight" style="color: yellow" >${filter}</span>`
+              `<span class="highlight" style="color: orange" >${filter}</span>`
             );
 
             return (
-              <li key={country.emoji}>
+              <li key={country.Flag}>
                 <span
-                  dangerouslySetInnerHTML={{ __html: `${name} ${continent}` }}
+                  dangerouslySetInnerHTML={{ __html: `${name} ${region}` }}
                 />
-                <span>{country.emoji}</span>
+                <img width="30" src={country.Flag} alt={country.Name}  style={{marginLeft: "10px"}} />
+
+                {/* <span>{country.emoji}</span> */}
               </li>
             );
           })}
