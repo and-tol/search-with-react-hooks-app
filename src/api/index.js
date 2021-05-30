@@ -1,9 +1,9 @@
-const MAIN_URI = 'htpps://lab.lectrum.io';
+const MAIN_URI = 'https://lab.lectrum.io';
 
 export const api = Object.freeze({
-  getContries: async (filter = '') => {
+  getContries: async (filter = '', size = 50) => {
     const response = await fetch(
-      `${MAIN_URI}/geo/api/countries?filter=${filter}?size=50`
+      `${MAIN_URI}/geo/api/countries?filter=${filter}&size=${size}`
     );
 
     const { data } = await response.json();
